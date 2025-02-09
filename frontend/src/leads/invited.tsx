@@ -68,7 +68,7 @@ const Invited: React.FC = () => {
                 <PinIcon />
                 <p>{lead.suburb}</p>
               </span>
-              <span className="flex gap-1 items-center">
+              <span className="flex gap-1">
                 <BriefcaseIcon />
                 <p>{lead.category}</p>
               </span>

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import mapPin from "../assets/Map-pin.svg";
-import bagFill from "../assets/bag-fill.svg";
 import { PinIcon } from "../icons/pin";
 import { BriefcaseIcon } from "../icons/briefcase";
 import { PhoneIcon } from "../icons/phone";
