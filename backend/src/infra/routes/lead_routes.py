@@ -27,9 +27,6 @@ def list_invited_leads():
 def accept_lead(lead_id):
     response_data = accept_lead_controller.handle(lead_id)
     response = jsonify(response_data)
-    # response.headers.add("Access-Control-Allow-Origin", "*")  # Replace * with frontend origin if needed
-    # response.headers.add("Access-Control-Allow-Headers", "Content-Type, Authorization")
-    # response.headers.add("Access-Control-Allow-Methods", "PATCH, OPTIONS")
     return response, response_data["code"]
 
 
