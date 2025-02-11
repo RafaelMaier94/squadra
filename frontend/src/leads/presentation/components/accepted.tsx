@@ -1,50 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { PinIcon } from "../icons/pin";
-import { BriefcaseIcon } from "../icons/briefcase";
-import { PhoneIcon } from "../icons/phone";
-import { EmailIcon } from "../icons/email";
-
-interface AcceptedLead {
-  id: number;
-  firstName: string;
-  dateCreated: Date;
-  suburb: string;
-  category: string;
-  description: string;
-  price: number;
-  contactFullName: string;
-  contactPhoneNumber: string;
-  contactEmail: string;
-}
+import React from "react";
+import { PinIcon } from "../../../icons/pin";
+import { BriefcaseIcon } from "../../../icons/briefcase";
+import { PhoneIcon } from "../../../icons/phone";
+import { EmailIcon } from "../../../icons/email";
+import { useLeads } from "../../hooks/useLeads";
 
 const Accepted: React.FC = () => {
-  // const [leads, setLeads] = useState<Lead[]>([]);
-  const leads: AcceptedLead[] = [
-    {
-      id: 555745,
-      firstName: "John",
-      dateCreated: new Date("1995-12-17T03:24:00"),
-      suburb: "Sydney 2574",
-      category: "Electrical",
-      description: "Need to install a new light fixture",
-      price: 100,
-      contactFullName: "John Doe",
-      contactPhoneNumber: "05124852",
-      contactEmail: "john@doe.com.br",
-    },
-    {
-      id: 1144572,
-      firstName: "Marco",
-      dateCreated: new Date("2020-12-17T18:24:00"),
-      suburb: "Melbourne",
-      category: "Plumbing",
-      description: "Need to fix a leaking tap",
-      price: 50,
-      contactFullName: "Marco Polo",
-      contactPhoneNumber: "5558742",
-      contactEmail: "marco@polo.com.br",
-    },
-  ];
+  const { leads } = useLeads("accepted");
+
   const formatDate = (date: Date) => {
     const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
       date
@@ -54,14 +17,11 @@ const Accepted: React.FC = () => {
     const year = date.getFullYear();
     return `${month} ${day} ${year} @ ${dateTime}`;
   };
-  const handleAccept = (lead: Lead) => {};
 
-  const handleDecline = (lead: Lead) => {};
 
   return (
-    <div>
-      <div className="lead-list font-sans">
-        {leads.map((lead) => (
+    <div className="font-sans">
+        {leads && leads.map((lead) => (
           <div
             key={lead.id}
             className="bg-[#F7FFFA] text-[#3A3A3A] mt-8 border-1 border-solid border-gray-200 shadow-sm"
@@ -102,7 +62,6 @@ const Accepted: React.FC = () => {
             </div>
           </div>
         ))}
-      </div>
     </div>
   );
 };
